@@ -5,11 +5,8 @@ parameters:
   - name: tfVariablesFilePath
     type: string
 
-  - name: tfPlanFileName
-    type: string
-
 steps:
-  - pwsh: "terraform apply "${{ parameters.tfPlanFileName }}"
+  - pwsh: "terraform apply --var-file="${{ parameters.tfVariablesFilePath }}"
     displayName: Terraform Apply
     workingDirectory: '${{ parameters.tfProjectPath }}'
     env:
