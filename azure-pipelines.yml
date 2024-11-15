@@ -1,11 +1,3 @@
-resources:
-  pipelines:
-    - pipeline: IaC # This alias should not be changed
-      source: '\\IaC\\Infrastructure IaC'
-      trigger:
-        tags:
-          - 'inf-notif-slack-func'
-
 trigger:
   batch: true
   branches:
