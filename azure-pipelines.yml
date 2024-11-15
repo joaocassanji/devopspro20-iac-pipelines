@@ -4,15 +4,6 @@ trigger:
     include:
       - main
 
-resources:
-  repositories:
-  - repository: IAC
-    type: git
-    name: joaocassanji/devops4devs-terraform-demo.git
-    ref: main
-    trigger:
-    - main
-
 variables:
   - template: ./templates/variables/settings.yml
 
