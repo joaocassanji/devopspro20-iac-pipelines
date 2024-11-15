@@ -2,6 +2,9 @@ variables:
   - name: serviceConnectionName
     value: 'devopspro-demo-sc'
 
+  - name: serviceConnectionName
+    value: 'demo-env'
+
   - name: agentPoolName
     value: 'Ubuntu-22.04'
 
