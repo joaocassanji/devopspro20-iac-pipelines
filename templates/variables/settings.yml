@@ -2,7 +2,7 @@ variables:
   - name: serviceConnectionName
     value: 'devopspro-demo-sc'
 
-  - name: serviceConnectionName
+  - name: azureDevopsEnvironment
     value: 'demo-env'
 
   - name: agentPoolName
