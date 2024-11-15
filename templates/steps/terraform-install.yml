@@ -3,5 +3,5 @@ parameters:
     type: string
 
 steps:
-  - pwsh: choco install terraform --version "${{ parameters.tfVersion }}"
+  - pwsh: terraform --version
     displayName: Install Terraform
