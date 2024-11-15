@@ -10,7 +10,7 @@ variables:
 stages:
   - stage: IAC_CI
     pool:
-      name: $(agentPoolName)
+      vmImage: $(agentPoolName)
     displayName: IAC CI
     jobs:
       - job: validation

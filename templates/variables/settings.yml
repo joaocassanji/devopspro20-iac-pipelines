@@ -6,4 +6,4 @@ variables:
     value: 'latest'
 
   - name: agentPoolName
-    value: 'Default'
+    value: 'Ubuntu-22.04'
