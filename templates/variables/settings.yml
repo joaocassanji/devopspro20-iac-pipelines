@@ -4,3 +4,6 @@ variables:
 
   - name: tfVersion
     value: 'latest'
+
+  - name: agentPoolName
+    value: 'Default'
