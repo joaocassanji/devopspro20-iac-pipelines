@@ -1,7 +1,0 @@
-parameters:
-  - name: tfVersion
-    type: string
-
-steps:
-  - pwsh: terraform --version
-    displayName: Install Terraform

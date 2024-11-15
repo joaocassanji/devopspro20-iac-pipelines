@@ -2,8 +2,5 @@ variables:
   - name: serviceConnectionName
     value: 'devopspro-demo-sc'
 
-  - name: tfVersion
-    value: 'latest'
-
   - name: agentPoolName
     value: 'Ubuntu-22.04'

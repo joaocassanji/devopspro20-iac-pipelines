@@ -16,12 +16,10 @@ stages:
       - job: validation
         displayName: Validation
         steps:
+          - checkout: git@github.com:joaocassanji/devops4devs-terraform-demo.git
           - template: ./templates/steps/load-credentials.yml
             parameters:
               serviceConnectionName: $(serviceConnectionName)
-          - template: ./templates/steps/terraform-install.yml
-            parameters:
-              tfVersion: $(tfVersion)
   #         - template: ./templates/steps/terraform-init.yml
   #           parameters:
   #             tfBackendConfigPath: 'ADD PARAMETER' 
