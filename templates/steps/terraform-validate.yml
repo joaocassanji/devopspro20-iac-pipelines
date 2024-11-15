@@ -1,0 +1,8 @@
+parameters:
+  - name: tfProjectPath
+    type: string
+
+steps:
+  - pwsh: terraform validate
+    displayName: Terraform Validate
+    workingDirectory: '${{ parameters.tfProjectPath }}'

@@ -1,0 +1,56 @@
+resources:
+  pipelines:
+    - pipeline: IaC # This alias should not be changed
+      source: '\\IaC\\Infrastructure IaC'
+      trigger:
+        tags:
+          - 'inf-notif-slack-func'
+
+trigger:
+  batch: true
+  branches:
+    include:
+      - main
+
+variables:
+  - template: ../templates/variables/settings.yml
+
+stages:
+  - stage: IAC_CI
+    displayName: IAC CI
+    jobs:
+      - job: validation
+        displayName: Validation
+        steps:
+          - template: ./templates/steps/load-credentials.yml
+            parameters:
+              serviceConnectionName: $(serviceConnectionName)
+          - template: ./templates/steps/terraform-install.yml
+            parameters:
+              tfVersion: $(tfVersion)
+  #         - template: ./templates/steps/terraform-init.yml
+  #           parameters:
+  #             tfBackendConfigPath: 'ADD PARAMETER' 
+  #             tfProjectPath: 'ADD PARAMETER' 
+  #         - template: ./templates/steps/terraform-validate.yml
+  #           parameters:
+  #             tfBackendConfigPath: 'ADD PARAMETER'       
+  #         - template: ./templates/steps/terraform-plan.yml
+  #           parameters:
+  #             spnName: 'ADD PARAMETER' 
+
+  # - stage: IAC_CD
+  #   displayName: IAC CD
+  #   jobs:
+  #     - job: deploy
+  #       displayName: Deploy
+  #       steps:
+  #         - template: ./templates/steps/load-credentials.yml
+  #           parameters:
+  #             serviceConnectionName: 'ADD PARAMETER'
+  #         - template: ./templates/steps/terraform-init.yml
+  #           parameters:
+  #             spnName: 'ADD PARAMETER' 
+  #         - template: ./templates/steps/terraform-apply.yml
+  #           parameters:
+  #             spnName: 'ADD PARAMETER' 
