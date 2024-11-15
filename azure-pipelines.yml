@@ -17,6 +17,7 @@ stages:
         displayName: Validation
         steps:
           - checkout: self
+            path: src
           - template: ./templates/steps/load-credentials.yml
             parameters:
               serviceConnectionName: $(serviceConnectionName)
