@@ -42,23 +42,27 @@ stages:
       vmImage: $(agentPoolName)
     displayName: IAC CD
     jobs:
-      - job: deploy
+      - deployment: RUN_TERRAFORM_APPLY
         displayName: Deploy
-        steps:
-          - checkout: self
-            path: src
-          - template: ./templates/steps/load-credentials.yml
-            parameters:
-              serviceConnectionName: $(serviceConnectionName)
-          - template: ./templates/steps/load-secrets.yml
-            parameters:
-              keyVaultName: $(keyVaultName)
-              serviceConnectionName: $(serviceConnectionName)
-          - template: ./templates/steps/terraform-init.yml
-            parameters:
-              tfBackendConfigPath: $(tfBackendConfigPath)
-              tfProjectPath: $(tfProjectPath)      
-          - template: ./templates/steps/terraform-apply.yml
-            parameters:
-              tfProjectPath: $(tfProjectPath)
-              tfVariablesFilePath: $(tfVariablesFilePath) 
+        environment: $(azureDevopsEnvironment)
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+              - checkout: self
+                path: src
+              - template: ./templates/steps/load-credentials.yml
+                parameters:
+                  serviceConnectionName: $(serviceConnectionName)
+              - template: ./templates/steps/load-secrets.yml
+                parameters:
+                  keyVaultName: $(keyVaultName)
+                  serviceConnectionName: $(serviceConnectionName)
+              - template: ./templates/steps/terraform-init.yml
+                parameters:
+                  tfBackendConfigPath: $(tfBackendConfigPath)
+                  tfProjectPath: $(tfProjectPath)      
+              - template: ./templates/steps/terraform-apply.yml
+                parameters:
+                  tfProjectPath: $(tfProjectPath)
+                  tfVariablesFilePath: $(tfVariablesFilePath) 
