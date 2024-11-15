@@ -4,6 +4,5 @@ parameters:
 
 steps: 
   - pwsh: terraform validate
-    dependsOn: tf-init
     displayName: Terraform Validate
     workingDirectory: '${{ parameters.tfProjectPath }}'
