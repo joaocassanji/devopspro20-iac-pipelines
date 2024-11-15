@@ -29,7 +29,7 @@ virtual_machine = [
     },
     {
         name = "frontend"
-        instances = 2
+        instances = 1
         subnet_name = "frontend"
         size = "Standard_B1s"
     },
