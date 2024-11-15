@@ -5,7 +5,7 @@ trigger:
       - main
 
 variables:
-  - template: ../templates/variables/settings.yml
+  - template: ./templates/variables/settings.yml
 
 stages:
   - stage: IAC_CI
