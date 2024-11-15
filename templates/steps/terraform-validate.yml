@@ -2,7 +2,8 @@ parameters:
   - name: tfProjectPath
     type: string
 
-steps: tf-validate
+steps: 
+    name: tf-validate
   - pwsh: terraform validate
     dependsOn: tf-init
     displayName: Terraform Validate
