@@ -6,10 +6,10 @@ variables:
     value: 'Ubuntu-22.04'
 
   - name: tfBackendConfigPath
-    value: './config/backend/dev/demo.backend.conf'
+    value: '$(Agent.BuildDirectory)/iac/config/backend/dev/demo.backend.conf'
 
   - name: tfVariablesFilePath
-    value: './config/variables/dev/variables.tfvars'
+    value: '$(Agent.BuildDirectory)/iac/config/variables/dev/variables.tfvars'
 
   - name: tfProjectPath
-    value: './iac'
+    value: '$(Agent.BuildDirectory)/iac'
