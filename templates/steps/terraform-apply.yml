@@ -6,9 +6,9 @@ parameters:
     type: string
 
 steps:
-  - pwsh: "terraform apply --var-file="${{ parameters.tfVariablesFilePath }}"
+  - pwsh: terraform apply --var-file="${{ parameters.tfVariablesFilePath }}"
     displayName: Terraform Apply
-    workingDirectory: '${{ parameters.tfProjectPath }}'
+    workingDirectory: ${{ parameters.tfProjectPath }}
     env:
       ARM_TENANT_ID: $(ARM_TENANT_ID)
       ARM_SUBSCRIPTION_ID: $(ARM_SUBSCRIPTION_ID)
