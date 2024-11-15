@@ -1,5 +1,5 @@
 location      = "eastus"
-naming_prefix = "devops4devs"
+naming_prefix = "devopspro"
 environment = "prod"
 
 virtual_network = {
@@ -36,6 +36,6 @@ virtual_machine = [
 ]
 
 database = {
-  server_name = "dbserver-devops4devs"
+  server_name = "dbserver-devopspro"
   database_name = "production"
 }

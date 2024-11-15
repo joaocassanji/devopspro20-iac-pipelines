@@ -4,6 +4,14 @@ trigger:
     include:
       - main
 
+parameters:
+  - name: environment
+    type: string
+    values:
+      - dev
+      - prod
+    default: dev
+
 variables:
   - template: ./templates/variables/settings.yml
 
