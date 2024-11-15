@@ -8,5 +8,8 @@ variables:
   - name: tfBackendConfigPath
     value: './config/backend/dev/demo.backend.conf'
 
+  - name: tfBackendConfigPath
+    value: './config/variables/dev/variables.tfvars'
+
   - name: tfProjectPath
     value: './iac'

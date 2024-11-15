@@ -23,12 +23,13 @@ stages:
             parameters:
               tfBackendConfigPath: $(tfBackendConfigPath)
               tfProjectPath: $(tfProjectPath) 
-  #         - template: ./templates/steps/terraform-validate.yml
-  #           parameters:
-  #             tfBackendConfigPath: 'ADD PARAMETER'       
-  #         - template: ./templates/steps/terraform-plan.yml
-  #           parameters:
-  #             spnName: 'ADD PARAMETER' 
+          - template: ./templates/steps/terraform-validate.yml
+            parameters:
+              tfProjectPath: $(tfProjectPath)      
+          - template: ./templates/steps/terraform-plan.yml
+            parameters:
+              tfProjectPath: $(tfProjectPath)
+              tfVariablesFilePath: $(tfVariablesFilePath) 
 
   # - stage: IAC_CD
   #   displayName: IAC CD

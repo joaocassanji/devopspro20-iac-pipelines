@@ -5,13 +5,10 @@ parameters:
   - name: tfVariablesFilePath
     type: string
 
-  - name: tfPlanFileName
-    type: string
-
 steps:
-  - pwsh: 'terraform plan --var-file="${{ parameters.tfVariablesFilePath }}" --out="${{ parameters.tfPlanFileName }}"'
+  - pwsh: terraform plan --var-file="${{ parameters.tfVariablesFilePath }}"
     displayName: Terraform Plan
-    workingDirectory: '${{ parameters.tfProjectPath }}'
+    workingDirectory: ${{ parameters.tfProjectPath }}
     env:
       ARM_TENANT_ID: $(ARM_TENANT_ID)
       ARM_SUBSCRIPTION_ID: $(ARM_SUBSCRIPTION_ID)
