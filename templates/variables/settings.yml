@@ -8,6 +8,9 @@ variables:
   - name: agentPoolName
     value: 'Ubuntu-22.04'
 
+  - name: keyVaultName
+    value: 'jcassanji-demo-kv'
+
   - name: tfBackendConfigPath
     value: '$(Agent.BuildDirectory)/src/iac/config/backend/dev/demo.backend.conf'
 

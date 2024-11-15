@@ -21,6 +21,10 @@ stages:
           - template: ./templates/steps/load-credentials.yml
             parameters:
               serviceConnectionName: $(serviceConnectionName)
+          - template: ./templates/steps/load-secrets.yml
+            parameters:
+              keyVaultName: $(keyVaultName)
+              serviceConnectionName: $(serviceConnectionName)
           - template: ./templates/steps/terraform-init.yml
             parameters:
               tfBackendConfigPath: $(tfBackendConfigPath)

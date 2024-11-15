@@ -40,7 +40,7 @@ variable "vm_username" {
   sensitive = true
 }
 
-variable "TF_VAR_vm_password" {
+variable "vm_password" {
   description = "Password to access the VMs, loaded by environment variables."
   sensitive = true
 }
