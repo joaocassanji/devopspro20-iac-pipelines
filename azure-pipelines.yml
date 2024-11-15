@@ -16,7 +16,6 @@ stages:
       - job: validation
         displayName: Validation
         steps:
-          - checkout: git@github.com:joaocassanji/devops4devs-terraform-demo.git
           - template: ./templates/steps/load-credentials.yml
             parameters:
               serviceConnectionName: $(serviceConnectionName)
