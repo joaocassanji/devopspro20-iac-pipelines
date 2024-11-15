@@ -16,6 +16,7 @@ stages:
       - job: validation
         displayName: Validation
         steps:
+          - checkout: self
           - template: ./templates/steps/load-credentials.yml
             parameters:
               serviceConnectionName: $(serviceConnectionName)
