@@ -1,3 +1,7 @@
+parameters:
+  - name: environment
+    type: string
+
 variables:
   - name: serviceConnectionName
     value: 'devopspro-demo-sc'
