@@ -6,7 +6,7 @@ parameters:
     type: string
 
 steps:
-  - pwsh: terraform destroy --var-file="${{ parameters.tfVariablesFilePath }}" -auto-approve
+  - pwsh: terraform apply --var-file="${{ parameters.tfVariablesFilePath }}" -auto-approve
     displayName: Terraform Apply
     workingDirectory: ${{ parameters.tfProjectPath }}
     env:
