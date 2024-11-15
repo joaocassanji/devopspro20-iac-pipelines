@@ -29,10 +29,10 @@ stages:
           - template: ./templates/steps/load-credentials.yml
             parameters:
               serviceConnectionName: $(serviceConnectionName)
-  #         - template: ./templates/steps/terraform-init.yml
-  #           parameters:
-  #             tfBackendConfigPath: 'ADD PARAMETER' 
-  #             tfProjectPath: 'ADD PARAMETER' 
+          - template: ./templates/steps/terraform-init.yml
+            parameters:
+              tfBackendConfigPath: $(tfBackendConfigPath)
+              tfProjectPath: $(tfProjectPath) 
   #         - template: ./templates/steps/terraform-validate.yml
   #           parameters:
   #             tfBackendConfigPath: 'ADD PARAMETER'       

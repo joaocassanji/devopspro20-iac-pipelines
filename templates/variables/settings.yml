@@ -4,3 +4,9 @@ variables:
 
   - name: agentPoolName
     value: 'Ubuntu-22.04'
+
+  - name: tfBackendConfigPath
+    value: './iac/config/backend/dev/demo.backend.conf'
+
+  - name: tfProjectPath
+    value: './iac'
