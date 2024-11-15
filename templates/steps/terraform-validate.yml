@@ -6,3 +6,6 @@ steps:
   - pwsh: terraform validate
     displayName: Terraform Validate
     workingDirectory: '${{ parameters.tfProjectPath }}'
+    env: 
+      TF_VAR_vm_username: $(TF-VAR-vm-username)
+      TF_VAR_vm_password: $(TF-VAR-vm-password)
