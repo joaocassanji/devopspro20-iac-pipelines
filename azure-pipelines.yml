@@ -37,18 +37,28 @@ stages:
               tfProjectPath: $(tfProjectPath)
               tfVariablesFilePath: $(tfVariablesFilePath) 
 
-  # - stage: IAC_CD
-  #   displayName: IAC CD
-  #   jobs:
-  #     - job: deploy
-  #       displayName: Deploy
-  #       steps:
-  #         - template: ./templates/steps/load-credentials.yml
-  #           parameters:
-  #             serviceConnectionName: 'ADD PARAMETER'
-  #         - template: ./templates/steps/terraform-init.yml
-  #           parameters:
-  #             spnName: 'ADD PARAMETER' 
-  #         - template: ./templates/steps/terraform-apply.yml
-  #           parameters:
-  #             spnName: 'ADD PARAMETER' 
+  - stage: IAC_CD
+    pool:
+      vmImage: $(agentPoolName)
+    displayName: IAC CD
+    jobs:
+      - job: deploy
+        displayName: Deploy
+        steps:
+          - checkout: self
+            path: src
+          - template: ./templates/steps/load-credentials.yml
+            parameters:
+              serviceConnectionName: $(serviceConnectionName)
+          - template: ./templates/steps/load-secrets.yml
+            parameters:
+              keyVaultName: $(keyVaultName)
+              serviceConnectionName: $(serviceConnectionName)
+          - template: ./templates/steps/terraform-init.yml
+            parameters:
+              tfBackendConfigPath: $(tfBackendConfigPath)
+              tfProjectPath: $(tfProjectPath)      
+          - template: ./templates/steps/terraform-apply.yml
+            parameters:
+              tfProjectPath: $(tfProjectPath)
+              tfVariablesFilePath: $(tfVariablesFilePath) 

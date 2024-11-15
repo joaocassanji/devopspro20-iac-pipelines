@@ -17,3 +17,5 @@ steps:
       ARM_SUBSCRIPTION_ID: $(ARM_SUBSCRIPTION_ID)
       ARM_CLIENT_ID: $(ARM_CLIENT_ID)
       ARM_CLIENT_SECRET: $(ARM_CLIENT_SECRET)
+      TF_VAR_vm_username: $(TF-VAR-vm-username)
+      TF_VAR_vm_password: $(TF-VAR-vm-password)
