@@ -42,7 +42,7 @@ stages:
       vmImage: $(agentPoolName)
     displayName: IAC CD
     jobs:
-      - deployment: RUN_TERRAFORM_APPLY
+      - deployment: deploy
         displayName: Deploy
         environment: $(azureDevopsEnvironment)
         strategy:
