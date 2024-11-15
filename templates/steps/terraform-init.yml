@@ -6,7 +6,7 @@ parameters:
     type: string
 
 steps:
-  - pwsh: terraform init -backend-config="${{ parameters.tfBackendConfigPath }}"
+  - pwsh: ls && terraform init -backend-config="${{ parameters.tfBackendConfigPath }}"
     displayName: Initialize Terraform
     workingDirectory: ${{ parameters.tfProjectPath }}
     env:
