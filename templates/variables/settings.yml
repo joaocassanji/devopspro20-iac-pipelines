@@ -8,7 +8,7 @@ variables:
   - name: tfBackendConfigPath
     value: './config/backend/dev/demo.backend.conf'
 
-  - name: tfBackendConfigPath
+  - name: tfVariablesFilePath
     value: './config/variables/dev/variables.tfvars'
 
   - name: tfProjectPath
